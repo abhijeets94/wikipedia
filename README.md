@@ -1,16 +1,15 @@
 # wiki
 
-A new Flutter project.
+Wikipedia api search and content display.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is just the basic to show the working of wikipedia search and content detail api.
 
-A few resources to get you started if this is your first Flutter project:
+Packages Used:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Provider: State Management](https://pub.dev/packages/provider)
+- [dio: http Client](https://pub.dev/packages/dio)
+- [dio_http_cache: Cache library for dio](https://pub.dev/packages/dio_http_cache)
+- [cached_network_image: Image Cachein](https://pub.dev/packages/dio)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
