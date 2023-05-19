@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wiki/pages.dart';
 import 'package:wiki/screens/details_screen.dart';
+import 'package:wiki/screens/history_details_screen.dart';
 import 'package:wiki/screens/history_screen.dart';
 
 class PageRoutes {
@@ -19,6 +20,11 @@ class PageRoutes {
       case HistoryScreen.routeName:
         return MaterialPageRoute(
           builder: (_) => HistoryScreen(historyData: settings.arguments),
+          settings: settings,
+        );
+      case HistoryDetailScreen.routeName:
+        return MaterialPageRoute(
+          builder: (_) => HistoryDetailScreen(searchedItem: settings.arguments),
           settings: settings,
         );
       default:

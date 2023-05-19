@@ -1,9 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:wiki/provider/search_provider.dart';
-
-import '../model/search.dart';
 
 class HistoryDetailScreen extends StatefulWidget {
   static const routeName = "/history-details-screen";
@@ -16,8 +11,8 @@ class HistoryDetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<HistoryDetailScreen> {
-  late final Search? search;
-  late final String? image;
+  late final String? search;
+  late final String? title;
 
   @override
   void initState() {
@@ -31,11 +26,12 @@ class _DetailScreenState extends State<HistoryDetailScreen> {
 
     var args =
         ModalRoute.of(context)?.settings.arguments! as Map<String, dynamic>;
-    search = args["searchedContent"];
-    image = args["searchedImage"];
+    debugPrint("args => ${args.values.toList()[0]}");
+    search = args.values.toList()[1].toString();
+    title = args.values.toList()[0].toString();
 
-    Provider.of<WikiProvider>(context, listen: false)
-        .setContent(search!.title!, context);
+    // Provider.of<WikiProvider>(context, listen: false)
+    //     .setContent(search!.title!, context);
   }
 
   @override
@@ -45,8 +41,8 @@ class _DetailScreenState extends State<HistoryDetailScreen> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
-            Provider.of<WikiProvider>(context, listen: false)
-                .setContent('', context);
+            // Provider.of<WikiProvider>(context, listen: false)
+            //     .setContent('', context);
 
             Navigator.pop(context);
           },
@@ -55,7 +51,7 @@ class _DetailScreenState extends State<HistoryDetailScreen> {
         ),
         backgroundColor: Colors.white,
         title: Text(
-          "${search!.title}",
+          "$title",
           style: const TextStyle(fontSize: 30, color: Colors.black),
         ),
       ),
@@ -64,24 +60,20 @@ class _DetailScreenState extends State<HistoryDetailScreen> {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              Center(
-                child: CachedNetworkImage(
-                  imageUrl: image!,
-                  fit: BoxFit.fill,
-                  height: 200,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Consumer<WikiProvider>(builder: (context, wikiprovider, _) {
-                return Text(
-                  wikiprovider.getContentDetails.isEmpty
-                      ? ""
-                      : "${wikiprovider.getContentDetails[0].revisions![0].slots?.main?.content}",
-                  style: const TextStyle(fontSize: 18),
-                );
-              }),
+              // Center(
+              //   child: CachedNetworkImage(
+              //     imageUrl: title!,
+              //     fit: BoxFit.fill,
+              //     height: 200,
+              //   ),
+              // ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              Text(
+                "$search",
+                style: const TextStyle(fontSize: 18),
+              )
             ],
           ),
         ),
