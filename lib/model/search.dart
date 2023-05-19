@@ -1,6 +1,12 @@
+import 'package:hive/hive.dart';
+part '../hive/search.g.dart';
+
+@HiveType(typeId: 0)
 class SearchModel {
+  @HiveField(0)
   String? batchcomplete;
   // Continue? continue;
+  @HiveField(1)
   Query? query;
 
   SearchModel(
@@ -11,7 +17,7 @@ class SearchModel {
   SearchModel.fromJson(Map<String, dynamic> json) {
     batchcomplete = json['batchcomplete'];
     // continue = json['continue'] != null ? new Continue.fromJson(json['continue']) : null;
-    query = json['query'] != null ? new Query.fromJson(json['query']) : null;
+    query = json['query'] != null ? Query.fromJson(json['query']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -27,8 +33,11 @@ class SearchModel {
   }
 }
 
+@HiveType(typeId: 1)
 class Query {
+  @HiveField(0)
   Searchinfo? searchinfo;
+  @HiveField(1)
   List<Search>? search;
 
   Query({this.searchinfo, this.search});
@@ -57,7 +66,9 @@ class Query {
   }
 }
 
+@HiveType(typeId: 2)
 class Searchinfo {
+  @HiveField(0)
   int? totalhits;
 
   Searchinfo({this.totalhits});
@@ -73,13 +84,21 @@ class Searchinfo {
   }
 }
 
+@HiveType(typeId: 3)
 class Search {
+  @HiveField(0)
   int? ns;
+  @HiveField(1)
   String? title;
+  @HiveField(2)
   int? pageid;
+  @HiveField(3)
   int? size;
+  @HiveField(4)
   int? wordcount;
+  @HiveField(5)
   String? snippet;
+  @HiveField(6)
   String? timestamp;
 
   Search(

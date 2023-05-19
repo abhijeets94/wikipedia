@@ -5,17 +5,17 @@ import 'package:wiki/provider/search_provider.dart';
 
 import '../model/search.dart';
 
-class DetailScreen extends StatefulWidget {
-  static const routeName = "/details-screen";
-  DetailScreen({super.key, this.searchedItem, this.detailImage});
+class HistoryDetailScreen extends StatefulWidget {
+  static const routeName = "/history-details-screen";
+  HistoryDetailScreen({super.key, this.searchedItem, this.detailImage});
   final searchedItem;
   String? detailImage;
 
   @override
-  State<DetailScreen> createState() => _DetailScreenState();
+  State<HistoryDetailScreen> createState() => _DetailScreenState();
 }
 
-class _DetailScreenState extends State<DetailScreen> {
+class _DetailScreenState extends State<HistoryDetailScreen> {
   late final Search? search;
   late final String? image;
 

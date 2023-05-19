@@ -1,5 +1,11 @@
+import 'package:hive/hive.dart';
+part '../hive/detail.g.dart';
+
+@HiveType(typeId: 0)
 class DetailsModel {
+  @HiveField(0)
   bool? batchcomplete;
+  @HiveField(1)
   Query? query;
 
   DetailsModel({this.batchcomplete, this.query});
@@ -19,7 +25,9 @@ class DetailsModel {
   }
 }
 
+@HiveType(typeId: 1)
 class Query {
+  @HiveField(0)
   List<Pages>? pages;
 
   Query({this.pages});
@@ -42,10 +50,15 @@ class Query {
   }
 }
 
+@HiveType(typeId: 2)
 class Pages {
+  @HiveField(0)
   int? pageid;
+  @HiveField(1)
   int? ns;
+  @HiveField(2)
   String? title;
+  @HiveField(3)
   List<Revisions>? revisions;
 
   Pages({this.pageid, this.ns, this.title, this.revisions});
@@ -74,7 +87,9 @@ class Pages {
   }
 }
 
+@HiveType(typeId: 3)
 class Revisions {
+  @HiveField(0)
   Slots? slots;
 
   Revisions({this.slots});
@@ -92,7 +107,9 @@ class Revisions {
   }
 }
 
+@HiveType(typeId: 4)
 class Slots {
+  @HiveField(0)
   Main? main;
 
   Slots({this.main});
@@ -110,9 +127,13 @@ class Slots {
   }
 }
 
+@HiveType(typeId: 5)
 class Main {
+  @HiveField(0)
   String? contentmodel;
+  @HiveField(1)
   String? contentformat;
+  @HiveField(2)
   String? content;
 
   Main({this.contentmodel, this.contentformat, this.content});

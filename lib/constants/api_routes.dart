@@ -1,3 +1,5 @@
+List<String> listHistory = [];
+
 String baseUrl() {
   return 'https://en.wikipedia.org/w/';
 }
